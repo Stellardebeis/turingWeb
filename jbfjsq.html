@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加班费计算器</title>
+    <script>
+        var psfz=0;
+        var psmz=0;
+        var zmfz=0;
+        var zmmz=0;
+        var d=0
+        function cs(a,b){
+        d++;
+        var sdate=[a.CARDTIME.split(' ')[0].split('-')];
+        var stime=[a.CARDTIME.split(' ')[1].split(':')];
+        var edata=[b.CARDTIME.split(' ')[0].split('-')];
+        var etime=[b.CARDTIME.split(' ')[1].split(':')];
+        var year = sdate[0][0], month = ((sdate[0][1])-1), date = sdate[0][2];// month=8表示9月,因为月份要加1
+        var dt = new Date(year, month, date);
+        console.log(dt);
+        if(dt.getDay()!=6 && dt.getDay()!=0){
+            var startTime=new Date(`${sdate[0][0]}/${(sdate[0][1])}/${sdate[0][2]} 19:00:00`);
+            console.log(startTime);
+            var endTime = new Date(`${edata[0][0]}/${(edata[0][1])}/${edata[0][2]} ${etime[0][0]}:${etime[0][1]}:${etime[0][2]}`);
+            // console.log(parseInt(endTime - startTime) / 1000 / 60);//两个时间相差的分钟数
+            // console.log(parseInt(endTime - startTime) / 1000);//两个时间相差的秒数
+            // console.log(`ps`,startTime);
+            if(parseInt(endTime - startTime)>1){
+              psfz+=(parseInt(endTime - startTime) / 1000 / 60);
+              psmz+=(parseInt(endTime - startTime) / 1000);
+            }
+
+        }else{
+
+            var startTime=new Date(`${edata[0][0]}/${(sdate[0][1])}/${sdate[0][2]} ${stime[0][0]}:${stime[0][1]}:${stime[0][2]}`);
+            var endTime = new Date(`${edata[0][0]}/${(edata[0][1])}/${edata[0][2]} ${etime[0][0]}:${etime[0][1]}:${etime[0][2]}`);
+            // console.log(edata[0][2],"zm",startTime,endTime);
+            // console.log(parseInt(endTime - startTime) / 1000 / 60);//两个时间相差的分钟数
+            zmfz+=(parseInt(endTime - startTime) / 1000 / 60);
+            zmmz+=(parseInt(endTime - startTime) / 1000);
+        }
+        // console.log(`平时${psfz}分钟,周末${zmfz}`);
+        // console.log();
+    }
+        function count(){
+            psfz=0;
+        psmz=0;
+        zmfz=0;
+        zmmz=0;
+            var data=JSON.parse(document.getElementById('val').value);
+            var d01=[];
+            var d02=[];
+            var d03=[];
+            var d04=[];
+            var d05=[];
+            var d06=[];
+            var d07=[];
+            var d08=[];
+            var d09=[];
+            var d10=[];
+            var d11=[];
+            var d12=[];
+            var d13=[];
+            var d14=[];
+            var d15=[];
+            var d16=[];
+            var d17=[];
+            var d18=[];
+            var d19=[];
+            var d20=[];
+            var d21=[];
+            var d22=[];
+            var d23=[];
+            var d24=[];
+            var d25=[];
+            var d26=[];
+            var d27=[];
+            var d28=[];
+            var d29=[];
+            var d30=[];
+            var d31=[];
+
+            for(let i=0;i<data.length;i++){
+                if(data[i].SHIFTTERM.split('-')[2] == '01'){
+                    d01.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '02'){
+                    d02.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '03'){
+                    d03.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '04'){
+                    d04.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '05'){
+                    d05.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '06'){
+                    d06.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '07'){
+                    d07.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '08'){
+                    d08.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '09'){
+                    d09.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '10'){
+                    d10.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '11'){
+                    d11.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '12'){
+                    d12.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '13'){
+                    d13.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '14'){
+                    d14.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '15'){
+                    d15.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '16'){
+                    d16.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '17'){
+                    d17.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '18'){
+                    d18.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '19'){
+                    d19.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '20'){
+                    d20.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '21'){
+                    d21.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '22'){
+                    d22.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '23'){
+                    d23.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '24'){
+                    d24.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '25'){
+                    // d25.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '26'){
+                    d26.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '27'){
+                    d27.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '28'){
+                    d28.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '29'){
+                    d29.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '30'){
+                    d30.push(data[i])
+                }
+                if(data[i].SHIFTTERM.split('-')[2] == '31'){
+                    d31.push(data[i])
+                }
+
+
+        }
+
+        if(d01.length!=0){
+            cs(d01[0],d01[(d01.length-1)]);
+        }
+        if(d02.length!=0){
+            // console.log("2");
+            cs(d02[0],d02[(d02.length-1)]);
+        }
+        if(d03.length!=0){
+            // console.log("3");
+            cs(d03[0],d03[(d03.length-1)]);
+        }
+        if(d04.length!=0){
+            cs(d04[0],d04[(d04.length-1)]);
+        }
+        if(d05.length!=0){
+            cs(d05[0],d05[(d05.length-1)]);
+        }
+        if(d06.length!=0){
+            cs(d06[0],d06[(d06.length-1)]);
+        }
+        if(d07.length!=0){
+            cs(d07[0],d07[(d07.length-1)]);
+        }
+        if(d08.length!=0){
+            cs(d08[0],d08[(d08.length-1)]);
+        }
+        if(d09.length!=0){
+            cs(d09[0],d09[(d09.length-1)]);
+        }
+        if(d10.length!=0){
+            cs(d10[0],d10[(d10.length-1)]);
+        }
+        if(d11.length!=0){
+            cs(d11[0],d11[(d11.length-1)]);
+        }
+        if(d12.length!=0){
+            cs(d12[0],d12[(d12.length-1)]);
+        }
+        if(d13.length!=0){
+            cs(d13[0],d13[(d13.length-1)]);
+        }
+        if(d14.length!=0){
+            cs(d14[0],d14[(d14.length-1)]);
+        }
+        if(d15.length!=0){
+            cs(d15[0],d15[(d15.length-1)]);
+        }
+        if(d16.length!=0){
+            cs(d16[0],d16[(d16.length-1)]);
+        }
+        if(d17.length!=0){
+            cs(d17[0],d17[(d17.length-1)]);
+        }
+        if(d18.length!=0){
+            cs(d18[0],d18[(d18.length-1)]);
+        }
+        if(d19.length!=0){
+            cs(d19[0],d19[(d19.length-1)]);
+        }
+        if(d20.length!=0){
+            cs(d20[0],d20[(d20.length-1)]);
+        }
+        if(d21.length!=0){
+            cs(d21[0],d21[(d21.length-1)]);
+        }
+        if(d22.length!=0){
+            cs(d22[0],d22[(d22.length-1)]);
+        }
+        if(d23.length!=0){
+            cs(d23[0],d23[(d23.length-1)]);
+        }
+        if(d24.length!=0){
+            cs(d24[0],d24[(d24.length-1)]);
+        }
+        if(d25.length!=0){
+            cs(d25[0],d25[(d25.length-1)]);
+        }
+        if(d26.length!=0){
+            cs(d26[0],d26[(d26.length-1)]);
+        }
+        if(d27.length!=0){
+            cs(d27[0],d27[(d27.length-1)]);
+        }
+        if(d28.length!=0){
+            cs(d28[0],d28[(d28.length-1)]);
+        }
+        if(d29.length!=0){
+            cs(d29[0],d29[(d29.length-1)]);
+        }
+        if(d30.length!=0){
+            cs(d30[0],d30[(d30.length-1)]);
+        }
+        if(d31.length!=0){
+            cs(d31[0],d31[(d31.length-1)]);
+        }
+        console.log(`平时${Math.floor(psfz)}分钟,周末${Math.floor(zmfz)},一共${d}天`);
+        document.getElementById("psfz").innerHTML = `这个月的平时加班时间是${Math.floor(psfz)}分钟，${Math.floor(psfz/60)}小时`;
+        document.getElementById("zmfz").innerHTML = `这个月的周末加班时间是${Math.floor(zmfz)}分钟，${Math.floor(zmfz/60)}小时`;
+
+        var allTime=psfz+zmfz;
+        document.getElementById("allTime").innerHTML = `一共加班${Math.floor(allTime/60)}小时`;
+
+        var jbf=0;
+        jbf= (Math.floor(psfz)*0.33)+(Math.floor(zmfz)*0.5);
+        document.getElementById("jbf").innerHTML= `这个月加班费：${jbf}元`
+        var jibie='能不能努力一点'
+        if(jbf<300){
+            jibie='你在干什么？'
+        }
+        else if(jbf>300&&jbf<500){
+            jibie='还行'
+        }else if(jbf<1000&&jbf>=500){
+            jibie='一般，建议多加点 冲1000'
+        }else if(jbf>=1000&&jbf<=1500){
+            jibie='牛逼'
+        }else if(jbf>=1500&&jbf<2000){
+            jibie='逆天'
+        }else if(jbf>=2000){
+            jibie='你是懂加班的'
+        }
+        document.getElementById("jibie").innerHTML=`鉴定级别为：${jibie}`
+    }
+
+
+
+    </script>
+</head>
+<body>
+    <a href="./index.html">返回主页</a>
+    <!-- <span>当前区域，佛山桂林专用版，上海版还没做</span> -->
+    <br>
+  <!-- <textarea name="" id="val" cols="30" rows="10" style="font-size: 8px;" ></textarea> -->
+    <textarea name="" id="val" cols="30" rows="10" style="font-size: 8px;" ></textarea>
+    <button onclick="count()">计算</button>
+    <!-- <p>新的计量单位：旺</p>
+<p>因为福旺米粉一碗就是4元，所以  1旺=4元</p> -->
+
+    <p id="psfz"></p>
+    <p id="zmfz"></p>
+    <p id="allTime" style="font-size: 30px;"></p>
+    <p id="jbf"></p>
+    <p id="jibie"></p>
+<br>
+<br>
+<!-- <p>1月28号和1月29号这两天有bug 请自己手动减去</p> -->
+<br>
+
+<div>
+<!--
+  <p>使用方法</p>
+  <p>1.在电脑用谷歌浏览器（Chrome）打开QHR</p>
+  <img src="./img/jbfjsq1.png" alt="" width="800px" >
+  <p>2.按下F12打开控制台，选择网络或者Network</p>
+  <img src="./img//jbfjsq2.png" alt="" width="1000px">
+  <p>3.然后现在点击个人考勤查询</p>
+  <img src="./img/jbfjsq3.png" alt="">
+  <p>4.现在查看控制台的里面  会有一个 alist!2CXvv_JQ9M03QhX8PGCgxw.220302</p>
+  <img src="./img/jbfjsq4.png" alt="" width="1000px">
+  <p>5.点击这个 alist!2CXvv_JQ9M03QhX8PGCgxw.220302 再点击右边的预览，找到你的打卡数据，点击复制值</p>
+  <img src="./img/jbfjsq5.png" alt="" width="1000px">
+  <p>6.将复制到的值，粘贴到本页的输入框中，点击 计算，就可以算出你的加班费了 （本过程不会获取任何数据，放心使用，如果获取了你的数据 我就是🐕）</p>
+  <br>
+-->
+  <p>版本时间：</p>
+  <br>
+  <p>v0.1 2022年12月20日10:21:12 内部测试版本</p>
+  <p>v0.2 2023年1月6日19:40:34 修复了2023年1月份无法计算的bug</p>
+  <p>v0.3 2023年1月7日16:27:06 修复了2023年1月份无法计算周末时间的bug</p>
+  <p>当前版本  v0.3</p>
+  <p>若您在使用的过程中发现bug 请及时和我联系，我可能会修 也可能懒得修</p>
+</div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
